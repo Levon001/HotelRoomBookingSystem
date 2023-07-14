@@ -1,10 +1,11 @@
 package room;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Room {
+public class Room implements Serializable {
     private static int ID;
     private List<Furniture> furnitures;
     private RoomType roomType;
@@ -12,7 +13,7 @@ public class Room {
     private double price;
     private int roomNumber;
 
-    public Room(List<Furniture> furnitures,RoomType roomType) {
+    public Room(List<Furniture> furnitures, RoomType roomType) {
         this.furnitures = new ArrayList<>();
         this.roomType = roomType;
         this.price = takeOutPrice(roomType);

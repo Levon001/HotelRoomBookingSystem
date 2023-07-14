@@ -1,6 +1,8 @@
 package room;
 
-public class Furniture {
+import java.io.Serializable;
+
+public class Furniture implements Serializable {
     private final String furnitureName;
     private int quantity;
 

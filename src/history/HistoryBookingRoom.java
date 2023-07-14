@@ -1,5 +1,6 @@
 package history;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import room.Room;
-public class HistoryBookingRoom {
+
+public class HistoryBookingRoom implements Serializable {
     private Room room;
     private List<ReserveDuration> reserveDurationList;
 
@@ -23,7 +25,6 @@ public class HistoryBookingRoom {
     public boolean addReservedHistory(ReserveDuration reserveDuration) {
         if (checkingDate(reserveDuration)) {
             reserveDurationList.add(reserveDuration);
-            System.out.println("Time is fixed");
             return true;
         }
         System.out.println("The time is already scheduled");
@@ -31,11 +32,11 @@ public class HistoryBookingRoom {
     }
 
     public boolean checkingDate(ReserveDuration reserveDuration) {
-        if(reserveDurationList.isEmpty()) {
+        if (reserveDurationList.isEmpty()) {
             return true;
         }
         for (ReserveDuration duration : reserveDurationList) {
-            if(checkDate(duration,reserveDuration)) {
+            if (checkDate(duration, reserveDuration)) {
                 return true;
             }
         }
